@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+spawn mysql -u root -p
+expect "Enter password:"
+send "\r"
+expect "mysql>"
+send "CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';\r"
+expect "mysql>"
+send "GRANT ALL ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY '123456';\r"
+expect "mysql>"
+send "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;FLUSH PRIVILEGES;\r"
+expect "mysql>"
+send "exit\r"
+# done
+expect eof

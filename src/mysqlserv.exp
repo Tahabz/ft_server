@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+
+spawn apt install mysql-server -y
+expect "Enter root password:"
+send "LEET\r"
+expect "Re-enter root password:"
+send "LEET\r"
+# done
+expect eof
