@@ -2,13 +2,13 @@
 spawn mysql -u root -p
 expect "Enter password:"
 send "\r"
-expect "mysql>"
+expect "MariaDB \[(none)\]>"
 send "CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';\r"
-expect "mysql>"
+expect "MariaDB \[(none)\]>"
 send "GRANT ALL ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY '123456';\r"
-expect "mysql>"
+expect "MariaDB \[(none)\]>"
 send "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;FLUSH PRIVILEGES;\r"
-expect "mysql>"
+expect "MariaDB \[(none)\]>"
 send "exit\r"
 # done
 expect eof

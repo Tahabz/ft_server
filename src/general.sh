@@ -10,3 +10,4 @@ sh nginx.sh
 sh mysqlscript.sh
 sh wordpress.sh
 service nginx restart
+service mysql restart
